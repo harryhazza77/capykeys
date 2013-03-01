@@ -6,11 +6,11 @@ require 'capykeys/version'
 Gem::Specification.new do |gem|
   gem.name          = "capykeys"
   gem.version       = Capykeys::VERSION
-  gem.authors       = ["Dakuan"]
-  gem.email         = ["dom.barker808@gmail.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
-  gem.homepage      = ""
+  gem.authors       = %w(Dakuan)
+  gem.email         = %w(dom.barker808@gmail.com)
+  gem.description   = %q{This gem makes it nice and easy to simulate common user kepress events like typing words, paragraphs or deleting text}
+  gem.summary       = %q{Wraps keypress events}
+  gem.homepage      = "https://github.com/Dakuan/capykeys"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
