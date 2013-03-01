@@ -6,6 +6,8 @@ module Capykeys
     KEYS = {
         enter: 13,
         space: 32,
+        delete: 46,
+        backspace: 8,
         A: 65
     }
 
@@ -41,9 +43,23 @@ module Capykeys
       trigger_keypress KEYS[:space]
     end
 
+    def press_delete
+      trigger_keypress KEYS[:delete]
+    end
+
+    def press_backspace
+      trigger_keypress KEYS[:backspace]
+    end
+
     private
     def trigger_keypress(key)
-      page.driver.browser.execute_script("$(function(){var e = $.Event('keypress', { which: #{key} }); $(document).trigger(e);});")
+      if page.evaluate_script(typeof jQuery === 'undefined')
+        raise 'Jquery needs to be in the page!'
+      else
+        page.driver.browser.execute_script("$(function(){var e = $.Event('keyup', { which: #{key} }); $(document).trigger(e);});")
+        page.driver.browser.execute_script("$(function(){var e = $.Event('keypress', { which: #{key} }); $(document).trigger(e);});")
+        page.driver.browser.execute_script("$(function(){var e = $.Event('keydown', { which: #{key} }); $(document).trigger(e);});")
+      end
     end
   end
 end
