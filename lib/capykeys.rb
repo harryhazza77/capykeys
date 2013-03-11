@@ -63,7 +63,7 @@ module Capykeys
 
     private
     def trigger_keypress(key)
-      if page.evaluate_script(typeof jQuery === 'undefined')
+      if page.evaluate_script("typeof jQuery === 'undefined'")
         raise 'Jquery needs to be in the page!'
       else
         page.driver.browser.execute_script("$(function(){var e = $.Event('keyup', { which: #{key} }); $(document).trigger(e);});")
