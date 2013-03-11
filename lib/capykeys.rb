@@ -4,6 +4,8 @@ module Capykeys
   module KeyPress
 
     KEYS = {
+        left: 37,
+        right: 39,
         enter: 13,
         space: 32,
         delete: 46,
@@ -33,6 +35,14 @@ module Capykeys
       Integer(times).times do
         trigger_keypress KEYS[:A]
       end
+    end
+
+    def press_left
+      trigger_keypress KEYS[:left]
+    end
+
+    def press_right
+      trigger_keypress KEYS[:right]
     end
 
     def press_enter
