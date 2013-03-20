@@ -15,19 +15,23 @@ module Capykeys
       A: {keydown: 65, keypress: 65, keyup: 65}
     }
 
+    CHARS_IN_A_WORD = 5
+    WORDS_IN_A_SENTENCE = 11
+    SENTENCES_IN_A_PARAGRAPH = 7
+
     def type_word
-      press_letter 5
+      press_letter CHARS_IN_A_WORD
     end
 
     def type_sentence
-      11.times do
+      WORDS_IN_A_SENTENCE.times do
         type_word
         press_space
       end
     end
 
     def type_paragraph
-      7.times do
+      SENTENCES_IN_A_PARAGRAPH.times do
         type_sentence
       end
     end
