@@ -5,7 +5,9 @@ module Capykeys
 
     KEYS = {
       left: {keydown: 37, keypress: -1, keyup: 37},
+      up: {keydown: 38, keypress: -1, keyup: 38},
       right: {keydown: 39, keypress: -1, keyup: 39},
+      down: {keydown: 40, keypress: -1, keyup: 40},
       enter: {keydown: 13, keypress: 13, keyup: 13},
       space: {keydown: 32, keypress: 32, keyup: 32},
       delete: {keydown: 46, keypress: -1, keyup: 46},
@@ -43,6 +45,14 @@ module Capykeys
 
     def press_right
       trigger_keypress KEYS[:right]
+    end
+
+    def press_up
+      trigger_keypress KEYS[:up]
+    end
+
+    def press_down
+      trigger_keypress KEYS[:down]
     end
 
     def press_enter
