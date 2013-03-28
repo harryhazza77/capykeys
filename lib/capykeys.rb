@@ -12,7 +12,8 @@ module Capykeys
       space: {keydown: 32, keypress: 32, keyup: 32},
       delete: {keydown: 46, keypress: -1, keyup: 46},
       backspace: {keydown: 8, keypress: -1, keyup: 8},
-      A: {keydown: 65, keypress: 65, keyup: 65}
+      A: {keydown: 65, keypress: 65, keyup: 65},
+      B: {keydown: 66, keypress: 66, keyup: 66},
     }
 
     CHARS_IN_A_WORD = 5
@@ -21,6 +22,11 @@ module Capykeys
 
     def type_word
       press_letter CHARS_IN_A_WORD
+    end
+
+    def fill_line
+      type_sentence
+      press_letter 3
     end
 
     def type_sentence
@@ -40,6 +46,13 @@ module Capykeys
       times = 1 unless times
       Integer(times).times do
         trigger_keypress KEYS[:A]
+      end
+    end
+
+    def press_letter_b(times = nil)
+      times = 1 unless times
+      Integer(times).times do
+        trigger_keypress KEYS[:B]
       end
     end
 
